@@ -1,15 +1,20 @@
 <script setup>
-import Toolbar from '@/components/Toolbar.vue'
-import CallParticipant from '@/components/CallParticipant.vue'
+import Toolbar from "@/components/Toolbar.vue";
+import CallParticipant from "@/components/CallParticipant.vue";
 </script>
 
-
 <template>
-    <div class="grid grid-cols-2 grid-rows-3 items-center justify-center place-items-center">
-        <CallParticipant username="Vilma Mendoza" />
-        <CallParticipant username="Alina Carpio" />
-        <CallParticipant username="Alexander Goussas" />
-        <CallParticipant username="Ruth Cueva" />
-        <Toolbar class="col-span-full" />
+  <div
+    class="grid grid-cols-2 grid-rows-5 h-screen items-center justify-center place-items-center"
+  >
+    <CallParticipant class="row-span-2" username="Vilma Mendoza" />
+    <CallParticipant class="row-span-2" username="Alina Carpio" />
+    <CallParticipant class="row-span-2" username="Alexander Goussas" />
+    <CallParticipant class="row-span-2" username="Ruth Cueva" />
+    <div
+      class="col-span-full bg-stone-700 flex items-center justify-center w-full h-full"
+    >
+      <Toolbar />
     </div>
+  </div>
 </template>
