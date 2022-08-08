@@ -18,17 +18,18 @@ const initials = getInitials(props.username);
 
 <template>
   <div
-    class="flex flex-col w-full h-full items-center justify-center p-4 bg-stone-800 border border-black"
+    class="flex flex-col w-full h-full items-center justify-around p-4 bg-stone-800 border border-black"
   >
     <div
       :style="{ backgroundColor: randomColor() }"
-      class="rounded-full p-12 text-2xl flex items-center justify-center"
+      class="rounded-full p-24 text-4xl flex items-center justify-center self-center"
     >
       {{ initials }}
     </div>
-    <span class="text-white self-start">
+    <span class="text-white self-start bg-stone-700 p-2 mx-2 shadow-sm shadow-black">
       {{ username }}
-      <font-awesome-icon class="text-white" :icon="['fas', 'microphone']" />
+      <font-awesome-icon class="text-white mx-1" :icon="['fas', 'microphone']" />
+      <font-awesome-icon class="text-white" :icon="['fas', 'ellipsis']" />
     </span>
   </div>
 </template>
