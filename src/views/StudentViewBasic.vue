@@ -10,46 +10,33 @@ const statisticsOpen = ref(false);
 </script>
 
 <template>
-  <div
-    class="grid grid-rows-5 grid-cols-2 h-screen items-center justify-center place-items-center"
-    :class="{
-      'grid-cols-6': askingForHelp,
-      'grid-cols-8': statisticsOpen,
-    }"
-  >
-    <CallParticipant
-      class="row-span-2"
-      :class="{ 'col-span-2': askingForHelp, 'col-span-3': statisticsOpen }"
-      username="Vilma Mendoza"
-    />
-    <CallParticipant
-      class="row-span-2"
-      :class="{ 'col-span-2': askingForHelp, 'col-span-3': statisticsOpen }"
-      username="Alina Carpio"
-    />
-    <CallParticipant
-      class="row-span-2"
-      :class="{ 'col-span-2': askingForHelp, 'col-span-3': statisticsOpen }"
-      username="Alexander Goussas"
-    />
-    <CallParticipant
-      class="row-span-2"
-      :class="{ 'col-span-3': askingForHelp || statisticsOpen }"
-      username="Ruth Cueva"
-    />
-    <CallParticipant
-      id="profesor"
-      v-if="askingForHelp"
-      class="row-span-2 relative col-span-3 z-10"
-      username="Guido Caicedo"
-    />
-    <Statistics
-      v-if="statisticsOpen"
-      class="col-start-7 col-span-2 row-start-1 row-span-2"
-    />
-    <div
-      class="col-span-full bg-stone-700 flex items-center justify-center w-full h-full"
-    >
+  <div class="flex flex-col h-full">
+    <div class="flex flex-wrap max-h-full">
+      <CallParticipant
+        class="max-w-[50%]"
+        :class="{ 'w-1/3': askingForHelp }"
+        username="Vilma Mendoza"
+      />
+      <CallParticipant
+        class="max-w-[50%]"
+        :class="{ 'w-1/3': askingForHelp }"
+        username="Alina Carpio"
+      />
+      <CallParticipant
+        class="max-w-[50%]"
+        :class="{ 'w-1/3': askingForHelp }"
+        username="Alexander Goussas"
+      />
+      <CallParticipant class="max-w-[50%]" username="Ruth Cueva" />
+      <CallParticipant
+        id="profesor"
+        v-if="askingForHelp"
+        class="relative z-10 max-w-[50%]"
+        username="Guido Caicedo"
+      />
+      <Statistics v-if="statisticsOpen" />
+    </div>
+    <div class="bg-stone-700 flex items-center justify-center w-full h-full">
       <Toolbar
         @statistics="statisticsOpen = !statisticsOpen"
         @help="askingForHelp = !askingForHelp"
