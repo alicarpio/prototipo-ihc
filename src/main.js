@@ -5,14 +5,16 @@ import {library} from '@fortawesome/fontawesome-svg-core'
 import {
     faVideo,
     faMicrophone,
-    faShare,
+    faArrowUpFromBracket,
     faChartLine,
     faEllipsis,
     faHand,
     faComment,
     faUserGroup,
     faQuestion,
-    faPhone
+    faPhone,
+    faDownload,
+    faXmark,
 } from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 
@@ -23,9 +25,9 @@ import router from './router'
 const app = createApp(App)
 
 library.add(
-    faVideo, faMicrophone, faShare,
+    faVideo, faMicrophone, faArrowUpFromBracket,
     faChartLine, faEllipsis, faHand, faComment, faUserGroup,
-    faQuestion, faPhone
+    faQuestion, faPhone, faDownload, faXmark
 )
 
 app.component('font-awesome-icon', FontAwesomeIcon)
