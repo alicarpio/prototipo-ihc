@@ -24,7 +24,7 @@ defineProps({
       bgColor="#292524"
       text="Statistics"
     />
-    <ToolbarButton iconName="ellipsis" bgColor="#292524" />
+    <ToolbarButton iconName="ellipsis" text="More" bgColor="#292524" />
     <ToolbarButton iconName="hand" text="" />
     <ToolbarButton iconName="comment" text="Chat" />
     <ToolbarButton iconName="user-group" text="Participants" />
