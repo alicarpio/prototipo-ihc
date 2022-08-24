@@ -25,7 +25,7 @@ const progress = ref(0);
     <!-- Progress bar -->
     <div
       :style="`width: ${progress}%`"
-      class="transition-all duration-1000 text-black text-center bg-yellow-500 p-1 rounded-md"
+      class="transition-all duration-1000 text-black text-center bg-gradient-to-b from-yellow-500 to-yellow-300 p-1 rounded-md"
     >
       <div>{{ progress }}%</div>
     </div>

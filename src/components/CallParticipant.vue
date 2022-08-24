@@ -19,7 +19,7 @@ const initials = getInitials(props.username);
 
 <template>
   <div
-    class="flex flex-col w-full items-center justify-around p-4 bg-stone-800 border border-black"
+    class="flex flex-col w-full items-center justify-around p-8 bg-stone-800 border border-black"
   >
     <div
       :id="avatarId"

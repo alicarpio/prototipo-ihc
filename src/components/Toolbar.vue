@@ -25,14 +25,10 @@ defineProps({
       text="Statistics"
     />
     <ToolbarButton iconName="ellipsis" text="More" bgColor="#292524" />
-    <ToolbarButton iconName="hand" text="" />
+    <ToolbarButton iconName="hand" text="Raise" />
     <ToolbarButton iconName="comment" text="Chat" />
     <ToolbarButton iconName="user-group" text="Participants" />
-    <ToolbarButton
-      @click="$emit('help', $event)"
-      iconName="question"
-      text="Help"
-    />
+    <ToolbarButton @click="$emit('help', $event)" iconName="question" text="Help" />
     <ToolbarButton iconName="phone" style="background-color: red" />
   </div>
 </template>
