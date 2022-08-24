@@ -59,7 +59,7 @@ const statisticsOpen = ref(false);
   opacity: 80%;
   z-index: -10;
   animation-name: blink;
-  animation-duration: 1.5s;
+  animation-duration: 1s;
   animation-iteration-count: 5;
 }
 

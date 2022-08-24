@@ -7,7 +7,7 @@ defineProps({
     type: Array,
     required: true,
   },
-  title: String,
+  groupNumber: String,
 });
 
 function getInitials(user) {
@@ -18,7 +18,7 @@ function getInitials(user) {
 
 <template>
   <div class="flex flex-col items-center" style="width: 30%">
-    <div class="text-violet-500 font-bold text-xl mb-3">{{ title }}</div>
+    <div class="text-violet-500 font-bold text-xl mb-3">{{ groupNumber }}</div>
     <div
         class="mb-10 items-center bg-stone-700 border-2  border-violet-500"
     >
@@ -26,7 +26,7 @@ function getInitials(user) {
         <div
             v-for="user of users"
             :style="{ backgroundColor: randomColor() }"
-            class="rounded-full text-xl p-8 m-1"
+            class="rounded-full text-xl p-8 m-1 bg-red-800"
         >
           {{ getInitials(user) }}
         </div>
