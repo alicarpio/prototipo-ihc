@@ -15,7 +15,8 @@ import {
     faPhone,
     faDownload,
     faXmark,
-    faVolumeHigh
+    faVolumeHigh,
+    faX
 } from '@fortawesome/free-solid-svg-icons'
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 
@@ -28,7 +29,7 @@ const app = createApp(App)
 library.add(
     faVideo, faMicrophone, faArrowUpFromBracket,
     faChartLine, faEllipsis, faHand, faComment, faUserGroup,
-    faQuestion, faPhone, faDownload, faXmark,faVolumeHigh
+    faQuestion, faPhone, faDownload, faXmark,faVolumeHigh,faX
 )
 
 app.component('font-awesome-icon', FontAwesomeIcon)

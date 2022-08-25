@@ -1,20 +1,18 @@
 <script setup>
 import {ref} from 'vue';
-import {faker} from "@faker-js/faker";
 
 import GroupWindow from "../components/GroupWindow.vue";
 import RoomHeader from "../components/RoomHeader.vue";
 import NotificationBox from "@/components/NotificationBox.vue";
+import {genNames, timeNotification} from "@/util.js";
 
-function genNames(n) {
-  let names = [];
-  for (let i = 0; i < n; i++) names.push(faker.name.fullName());
-  return names;
-
-}
 
 const bolitaClass = ref('')
 setTimeout(() => bolitaClass.value = 'bolita', 3000)
+
+const chatOpen = ref(false);
+
+timeNotification()
 
 </script>
 
@@ -23,16 +21,38 @@ setTimeout(() => bolitaClass.value = 'bolita', 3000)
     <RoomHeader/>
     <div class="grid" style="grid-template-columns: 4fr 1fr">
       <div class="flex p-5 flex-wrap items-center justify-around">
-        <GroupWindow group-number="Room 1" :users="genNames(4)"></GroupWindow>
-        <GroupWindow group-number="Room 2" :users="genNames(5)"></GroupWindow>
-        <GroupWindow :class="bolitaClass" group-number="Room 3" :users="genNames(4)"></GroupWindow>
-        <GroupWindow group-number="Room 4" :users="genNames(5)"></GroupWindow>
-        <GroupWindow group-number="Room 5" :users="genNames(5)"></GroupWindow>
-        <GroupWindow :class="bolitaClass" group-number="Room 6" :users="genNames(4)"></GroupWindow>
+        <GroupWindow v-for="i in 6"
+                     @chat-open="chatOpen = !chatOpen"
+                     :group-number="`Room ${i}`"
+                     :class="[i === 3 || i === 6 ? bolitaClass : '']"
+                     :users="genNames(i % 2 === 0 ? 4 : 5)"
+        />
       </div>
       <div class="bg-white">
-        <span class="font-bold m-5">Room Notifications</span>
-        <NotificationBox title="Room 3" message="EL grupo no tiene actividad"/>
+        <div v-if="chatOpen">
+          <div class="bg-slate-400 p-2 m-5">
+            <div class="flex justify-around">
+              <span class="text-black font-bold mr-16 ">Chat Room</span>
+              <font-awesome-icon class="text-gray-500 text-xs" icon="fa-solid fa-x" @click="chatOpen = !chatOpen" />
+
+            </div>
+            <NotificationBox title="Henry Segovia" message="¿Cuál era la pregunta 5?"/>
+            <NotificationBox title="Helen Gomez" message="Estoy de acuerdo pero deberiamos"/>
+            <div class="flex flex-col bg-[#B8B3E9] p-5 m-5 rounded-md">
+              <div class="text-xs text-slate-500">{{timeNotification()}}</div>
+              <img alt="imagen documento pdf" src="/documentopdf.png"/>
+            </div>
+            <div class="flex flex-col bg-[#B8B3E9] p-5 m-5 rounded-md">
+              <div class="text-xs text-slate-500">{{timeNotification()}}</div>
+              <img alt="imagen documento pdf" src="/ejerciciomate.png"/>
+            </div>
+          </div>
+        </div>
+        <div v-else>
+          <span class="font-bold m-5">Room Notifications</span>
+          <NotificationBox v-show="bolitaClass !== ''" title="Room 3" message="EL grupo no tiene actividad"/>
+          <NotificationBox v-show="bolitaClass !== ''" title="Room 6" message="EL grupo no tiene actividad"/>
+        </div>
       </div>
     </div>
   </div>

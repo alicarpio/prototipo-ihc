@@ -7,7 +7,7 @@ defineProps({
     type: Array,
     required: true,
   },
-  groupNumber: String,
+  groupNumber: String
 });
 
 function getInitials(user) {
@@ -32,8 +32,10 @@ function getInitials(user) {
         </div>
       </div>
       <div class="flex justify-around items-center bg-white w-full h-14">
-        <Button text="Enter"/>
-        <Button text="Chat"/>
+        <router-link to="/estudiantes">
+          <Button text="Enter"/>
+        </router-link>
+        <Button @click="$emit('chat-open', $event)" text="Chat"/>
         <font-awesome-icon :icon="['fas', 'fa-hand']" class="text-3xl"/>
         <div class="border-l-4 border-l-violet-500 h-full flex items-center pl-4">
           <font-awesome-icon :icon="['fas', 'fa-volume-high']" class="text-3xl"/>
@@ -42,5 +44,3 @@ function getInitials(user) {
     </div>
   </div>
 </template>
-
-<style></style>

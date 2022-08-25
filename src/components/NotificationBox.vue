@@ -1,19 +1,19 @@
 <script setup>
 
-const props = defineProps({
+import {timeNotification} from "@/util";
+
+defineProps({
   title: String,
   message: String
 });
 
-function timeNotification(){
-  let today = new Date();
-  let time = today.getHours() + ":" + today.getMinutes();
-}
+timeNotification()
 </script>
 
 <template>
-  <div class="flex flex-col bg-[#B8B3E9] p-5 m-5 rounded-md">
-    <span class="font-bold">{{title}}</span>
+  <div class="flex flex-col bg-[#B8B3E9] p-3 m-5 rounded-md">
+    <div class="text-xs text-slate-500">{{timeNotification()}}</div>
+    <span class="font-bold ">{{title}}</span>
     <span>{{message}}</span>
   </div>
 
